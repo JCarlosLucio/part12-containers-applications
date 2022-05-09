@@ -1,5 +1,5 @@
 FROM node:16
-RUN apk dumb-init
+# RUN apk dumb-init
 
 ENV DEBUG=playground:*
 ENV NODE_ENV production
@@ -19,4 +19,5 @@ RUN npm ci --only=production
 
 USER node
 
-CMD ["dumb-init", "node", "./bin/www"]
+# CMD ["dumb-init", "node", "./bin/www"]
+CMD npm start
