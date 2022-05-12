@@ -1,0 +1,67 @@
+Script started on 2022-05-11 23:41:12-05:00 [TERM="xterm-256color" TTY="/dev/pts/1" COLUMNS="118" LINES="57"]
+[?2004h]0;ubupanda@pc: ~/projects/full_stack_open/part12-containers-applications/todo-app/todo-backend[01;32mubupanda@pc[00m:[01;34m~/projects/full_stack_open/part12-containers-applications/todo-app/todo-backend[00m$ sudo docker exec -it todo -backend-mongo-1 bash
+[?2004l[sudo] password for ubupanda: 
+]0;root@9974bac3a7a3: /root@9974bac3a7a3:/# mongo -u root -p example
+MongoDB shell version v5.0.8
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("de7f2214-a2d4-4d32-bc39-9e55fc0e3fcf") }
+MongoDB server version: 5.0.8
+================
+Warning: the "mongo" shell has been superseded by "mongosh",
+which delivers improved usability and compatibility.The "mongo" shell has been deprecated and will be removed in
+an upcoming release.
+For installation instructions, see
+https://docs.mongodb.com/mongodb-shell/install/
+================
+Welcome to the MongoDB shell.
+For interactive help, type "help".
+For more comprehensive documentation, see
+	https://docs.mongodb.com/
+Questions? Try the MongoDB Developer Community Forums
+	https://community.mongodb.com
+---
+The server generated these startup warnings when booting: 
+        2022-05-12T04:31:56.353+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+---
+---
+        Enable MongoDB's free cloud-based monitoring service, which will then receive and display
+        metrics about your deployment (disk utilization, CPU, operation statistics, etc).
+
+        The monitoring data will be available on a MongoDB website with a unique URL accessible to you
+        and anyone you share the URL with. MongoDB may use this information to make product
+        improvements and to suggest MongoDB products and deployment options to you.
+
+        To enable free monitoring, run the following command: db.enableFreeMonitoring()
+        To permanently disable this reminder, run the following command: db.disableFreeMonitoring()
+---
+> show dbs[3G[Jshow dbs[11G
+admin         0.000GB
+config        0.000GB
+local         0.000GB
+the_database  0.000GB
+> use the_database[3G[Juse the_database[19G
+switched to db the_database
+> show collections[3G[Jshow collections[19G
+todos
+> db.todos.find({})[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("6279b23ef1c5bf056d40c46d"), "text" : "Write code", "done" : true }
+{ "_id" : ObjectId("6279b23ef1c5bf056d40c46e"), "text" : "Learn about containers", "done" : false }
+{ "_id" : ObjectId("6279bdb583b81d3de8073b01"), "text" : "learn react", "done" : true, "__v" : 0 }
+> db.todos.insertOne({text: "Increase the number of tools in my toolbelt", done: false})[3G[Jdb.todos.insertOne({text: "Increase the number of tools in my toolbelt", done: false})[89G
+{
+	"acknowledged" : true,
+	"insertedId" : ObjectId("627c90fdb895aa5fad0ebc96")
+}
+> db.todos.find({})[3G[Jdb.todos.find({})[20G
+{ "_id" : ObjectId("6279b23ef1c5bf056d40c46d"), "text" : "Write code", "done" : true }
+{ "_id" : ObjectId("6279b23ef1c5bf056d40c46e"), "text" : "Learn about containers", "done" : false }
+{ "_id" : ObjectId("6279bdb583b81d3de8073b01"), "text" : "learn react", "done" : true, "__v" : 0 }
+{ "_id" : ObjectId("627c90fdb895aa5fad0ebc96"), "text" : "Increase the number of tools in my toolbelt", "done" : false }
+> exit[3G[Jexit[7G
+bye
+]0;root@9974bac3a7a3: /root@9974bac3a7a3:/# exit
+exit
+[?2004h]0;ubupanda@pc: ~/projects/full_stack_open/part12-containers-applications/todo-app/todo-backend[01;32mubupanda@pc[00m:[01;34m~/projects/full_stack_open/part12-containers-applications/todo-app/todo-backend[00m$ exit
+[?2004lexit
+
+Script done on 2022-05-11 23:46:47-05:00 [COMMAND_EXIT_CODE="0"]
