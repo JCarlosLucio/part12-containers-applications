@@ -8,6 +8,8 @@ COPY . .
 
 RUN npm ci
 
+RUN CI=true npm test
+
 RUN npm run build
 
 FROM nginx:1.20-alpine
